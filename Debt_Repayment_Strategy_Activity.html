@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>اختار طريقك لسداد الديون</title>
+<style>
+:root{--n:#14253d;--g:#1d6b52;--gold:#b58b45;--bg:#f6f4ef;--b:#dfe3e8;--m:#687385}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--n);font-family:Tahoma,Arial,sans-serif}
+main{max-width:900px;margin:auto;padding:28px 18px 50px}.head{text-align:center}.tag{display:inline-block;background:#e9eee9;color:var(--g);padding:7px 13px;border-radius:99px;font-weight:700}
+h1{font-size:31px;margin:12px 0 8px}.sub{color:var(--m);line-height:1.8}.card{background:#fff;border:1px solid var(--b);border-radius:20px;padding:22px;margin:16px 0}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.debt{border:1px solid var(--b);border-radius:15px;padding:16px}.name{font-weight:800}.amt{font-size:22px;color:var(--g);font-weight:800;margin-top:7px}.muted{color:var(--m);font-size:14px}
+.methods{display:grid;grid-template-columns:1fr 1fr;gap:12px}button{font:inherit;cursor:pointer}button.method,button.answer{border:1px solid var(--b);background:#fff;border-radius:14px;padding:15px;text-align:right}
+.method.selected{border:2px solid var(--g);background:#eef3f0}.method b{font-size:18px}.feedback{margin-top:14px;padding:15px;border-radius:14px;line-height:1.8;background:#f3f4f6}.ok{background:#edf7ef;border:1px solid #cfe4d2}.bad{background:#fff1f1;border:1px solid #ecd0d0}
+.order{display:flex;flex-direction:column;gap:9px;margin:12px 0}.row{display:flex;align-items:center;justify-content:space-between;gap:10px;border:1px solid var(--b);border-radius:12px;padding:12px;background:#fff}.controls button{border:1px solid var(--b);background:#f7f7f5;border-radius:8px;padding:6px 10px}.primary{border:0;background:var(--n);color:#fff;border-radius:12px;padding:12px 18px;font-weight:700}.hidden{display:none}.final{text-align:center;border:2px solid var(--gold);background:#fffdf8}.note{font-size:13px;color:var(--m);line-height:1.7}
+@media(max-width:650px){.grid,.methods{grid-template-columns:1fr}h1{font-size:26px}}
+</style>
+</head>
+<body>
+<main>
+<div class="head"><span class="tag">نشاط تفاعلي | الديون والاقتراض</span><h1>🎮 اختار طريقك لسداد الديون</h1><div class="sub">افهم الفرق بين <b>طريقة الانهيار الجليدي</b> و<b>طريقة كرة الثلج</b> من خلال موقف عملي.</div></div>
+
+<section class="card"><h2>الموقف</h2><p>خالد عنده 3 ديون. لو كنت مكانه، هتبدأ بأنهي دين؟</p>
+<div class="grid">
+<div class="debt"><div class="name">بطاقة ائتمانية</div><div class="amt">5,000 جنيه</div><div class="muted">فائدة 25%</div></div>
+<div class="debt"><div class="name">قرض شخصي</div><div class="amt">20,000 جنيه</div><div class="muted">فائدة 18%</div></div>
+<div class="debt"><div class="name">تقسيط مشتريات</div><div class="amt">10,000 جنيه</div><div class="muted">فائدة 10%</div></div>
+</div></section>
+
+<section class="card"><h2>الخطوة 1 | اختار استراتيجيتك</h2>
+<div class="methods">
+<button class="method" data-m="a"><b>🏔️ طريقة الانهيار الجليدي</b><br><span class="muted">ابدأ بالدين صاحب أعلى فائدة</span></button>
+<button class="method" data-m="s"><b>❄️ طريقة كرة الثلج</b><br><span class="muted">ابدأ بالدين صاحب أصغر رصيد</span></button>
+</div><div id="mf" class="feedback hidden"></div></section>
+
+<section id="os" class="card hidden"><h2>الخطوة 2 | رتب الديون</h2><p>استخدم الأسهم لترتيب الديون من الأولوية الأعلى للسداد إلى الأقل.</p><div id="list" class="order"></div><button id="check" class="primary">تحقق من الترتيب</button><div id="of" class="feedback hidden"></div></section>
+
+<section id="ns" class="card hidden"><h2>الخطوة 3 | قرارك بعد أول دين</h2><p>بعد ما تخلص أول دين، إيه اللي يحصل بالمبلغ الإضافي اللي كنت بتدفعه؟</p>
+<div style="display:grid;gap:9px"><button class="answer" data-a="w">أوقف السداد الإضافي</button><button class="answer" data-a="c">أضيفه للدين التالي</button><button class="answer" data-a="w">أستخدمه في مصروفات جديدة</button></div><div id="af" class="feedback hidden"></div></section>
+
+<section id="fs" class="card final hidden"><h2>🎯 أحسنت!</h2><p>أنت الآن فاهم الفرق الأساسي بين الاستراتيجيتين، وعرفت إزاي تحوّل الديون من مشكلة غير واضحة إلى التزامات يمكن ترتيبها وإدارتها.</p><p><b>تذكر:</b> في أي استراتيجية، استمر في سداد الحد الأدنى المطلوب لباقي الديون، ووجّه المبلغ الإضافي للدين المستهدف حسب خطتك.</p><button id="restart" class="primary">إعادة النشاط</button></section>
+<div class="note">هذا النشاط تعليمي لفهم استراتيجيات سداد الديون، وليس توصية باختيار استراتيجية أو منتج ائتماني بعينه.</div>
+</main>
+<script>
+const D=[["card","البطاقة الائتمانية",5000,25],["loan","القرض الشخصي",20000,18],["inst","تقسيط المشتريات",10000,10]];
+let method=null,order=D.map(x=>x[0]);
+const $=id=>document.getElementById(id);
+function render(){const l=$("list");l.innerHTML="";order.forEach((id,i)=>{let d=D.find(x=>x[0]===id);let r=document.createElement("div");r.className="row";r.innerHTML="<span><b>"+(i+1)+". "+d[1]+"</b><br><span class='muted'>"+d[2].toLocaleString("ar-EG")+" جنيه — فائدة "+d[3]+"%</span></span>";let c=document.createElement("span");c.className="controls";let u=document.createElement("button");u.textContent="↑";u.disabled=i===0;u.onclick=()=>{[order[i-1],order[i]]=[order[i],order[i-1]];render()};let dn=document.createElement("button");dn.textContent="↓";dn.disabled=i===order.length-1;dn.onclick=()=>{[order[i+1],order[i]]=[order[i],order[i+1]];render()};c.append(u,dn);r.append(c);l.append(r)})}
+document.querySelectorAll("[data-m]").forEach(b=>b.onclick=()=>{document.querySelectorAll("[data-m]").forEach(x=>x.classList.remove("selected"));b.classList.add("selected");method=b.dataset.m;order=D.map(x=>x[0]);$("mf").className="feedback";$("mf").innerHTML=method==="a"?"<b>🏔️ اخترت طريقة الانهيار الجليدي.</b><br>رتّب الديون حسب أعلى فائدة أولًا.":"<b>❄️ اخترت طريقة كرة الثلج.</b><br>رتّب الديون حسب أصغر رصيد أولًا.";$("os").classList.remove("hidden");$("ns").classList.add("hidden");$("fs").classList.add("hidden");$("of").classList.add("hidden");render();$("os").scrollIntoView({behavior:"smooth"})});
+$("check").onclick=()=>{let correct=method==="a"?["card","loan","inst"]:["card","inst","loan"],ok=order.join()==correct.join();$("of").className="feedback "+(ok?"ok":"bad");$("of").classList.remove("hidden");if(ok){$("of").innerHTML="<b>🎯 صحيح!</b><br>"+(method==="a"?"لأنك بدأت بأعلى فائدة: 25% ثم 18% ثم 10%.":"لأنك بدأت بأصغر رصيد: 5,000 ثم 10,000 ثم 20,000.");$("ns").classList.remove("hidden");$("ns").scrollIntoView({behavior:"smooth"})}else $("of").innerHTML="<b>راجع ترتيبك.</b><br>"+(method==="a"?"الانهيار الجليدي: أعلى فائدة إلى أقل فائدة.":"كرة الثلج: أصغر رصيد إلى أكبر رصيد.")};
+document.querySelectorAll("[data-a]").forEach(b=>b.onclick=()=>{let ok=b.dataset.a==="c";$("af").className="feedback "+(ok?"ok":"bad");$("af").classList.remove("hidden");$("af").innerHTML=ok?"<b>🎯 صحيح!</b><br>بعد إنهاء دين، تنقل قوة السداد الإضافي للدين التالي، مع الاستمرار في سداد الحد الأدنى المطلوب لباقي الديون.":"<b>راجع القرار.</b><br>الفكرة هي الحفاظ على مبلغ السداد الإضافي وتوجيهه للدين التالي بدل خروجه من خطة السداد.";if(ok){$("fs").classList.remove("hidden");$("fs").scrollIntoView({behavior:"smooth"})}});
+$("restart").onclick=()=>{method=null;order=D.map(x=>x[0]);document.querySelectorAll("[data-m]").forEach(x=>x.classList.remove("selected"));["mf","os","ns","fs","of","af"].forEach(id=>$(id).classList.add("hidden"));scrollTo({top:0,behavior:"smooth"})};
+</script>
+</body>
+</html>
